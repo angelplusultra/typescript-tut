@@ -119,8 +119,75 @@ whatever = {
     friends: any
 }  
 
- // all assigments clear past the compiler, however this type assignment basically reverts TS back to vanilla JS and removes all the beenfits of using TS in the first place. use only in certain special situations.
+ // all assigments clear past the compiler, however this type assignment basically reverts TS back to vanilla JS 
+ //and removes all the beenfits of using TS in the first place. use only in certain special situations.
+
+
+ //Functions
+
+
+//functions work as they normally would
+
+function f(){
+
+}
+const example = function(){
+
+}
+const example2 = () => {
+
+}
 
 
 
+// you can explicity declare a variable will contain a function in the future
+
+ let getName: Function
+
+getName = function(){
+
+}
+
+getName = () => {
+
+}
+
+
+
+
+//functions with explicit return values
+ function getAge(age: number): number{
+    return age
+ }
+
+//if a function does not return a value, it automatically assigns the void value, but you can be explicit as well
+function logName(name: string): void{
+    console.log(name)
+}
+
+
+
+
+
+
+
+
+
+// type aliasing is like storing the various types withina variable
+
+
+type StringOrNum = string | number
+
+const logDetails = (uid: StringOrNum, item: string) => {
+
+}
+
+
+
+
+type ObjectWithName =  {name: string, uid: StringOrNum, age: number, sexuality?: boolean}
+
+const greet = (user: ObjectWithName) => {
+    console.log(`${user.name} says hello`)
+}
 
